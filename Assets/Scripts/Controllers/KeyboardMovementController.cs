@@ -20,7 +20,16 @@ public class KeyboardMovementController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            character.HitForward();
+            if (!character.IsUnarmed())
+                character.HitForward();
+        }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            character.SwitchUnarmed(!character.IsUnarmed());
+        }
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+
         }
     }
 

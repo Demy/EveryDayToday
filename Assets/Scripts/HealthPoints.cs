@@ -29,4 +29,9 @@ public class HealthPoints : MonoBehaviour
         }
         OnChange(current);
     }
+
+    public int GetValue()
+    {
+        return current;
+    }
 }
