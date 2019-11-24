@@ -10,7 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b797599c1b13d40bf88250a03e83647f, type: 3}
-  m_Name: TextGuy2Text
+  m_Name: TestGuy2Text
   m_EditorClassIdentifier: 
   requirements: []
-  lines: []
+  lines:
+  - Nice to see a new face here
+  answers:
+  - {fileID: 11400000, guid: eeedd996e0b99489f983e3e0ec34acb6, type: 2}
+  - {fileID: 11400000, guid: 9d63242840b9641c88331d766964101e, type: 2}

@@ -13,4 +13,7 @@ MonoBehaviour:
   m_Name: TestGuyText
   m_EditorClassIdentifier: 
   requirements: []
-  lines: []
+  lines:
+  - Hi...
+  - Yeah, the day is kinda ok...
+  - Anyway, nice talking.

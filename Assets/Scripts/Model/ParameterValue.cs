@@ -31,14 +31,15 @@ public class ParameterValue : ScriptableObject
 
     private bool CheckValue(float valueToCheck)
     {
+        Debug.Log("CheckValue " + valueToCheck + " " + comparison + " " + value + "?");
         switch (comparison)
         {
             case Comparison.Equals:
                 return valueToCheck.Equals(value);
             case Comparison.Greater:
-                return valueToCheck < value;
-            case Comparison.Less:
                 return valueToCheck > value;
+            case Comparison.Less:
+                return valueToCheck < value;
         }
         return false;
     }

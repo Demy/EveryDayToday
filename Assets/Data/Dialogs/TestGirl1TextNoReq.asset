@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: TestGirl1TextNoReq
   m_EditorClassIdentifier: 
   requirements: []
-  lines: []
+  lines:
+  - Hi, how are you doing today?

@@ -10,7 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b797599c1b13d40bf88250a03e83647f, type: 3}
-  m_Name: TestGirl1Text
+  m_Name: TestGirl1TextHP
   m_EditorClassIdentifier: 
-  requirements: []
-  lines: []
+  requirements:
+  - {fileID: 11400000, guid: 87b099a11ab984cc9bea50d8c6539562, type: 2}
+  lines:
+  - You look bad, do you need any help?
+  answers:
+  - {fileID: 11400000, guid: 2fc9b7315f46241a690896e029f9a056, type: 2}
+  - {fileID: 11400000, guid: adcace86d4bb7486ab4eef5005b3b939, type: 2}

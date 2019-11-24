@@ -34,7 +34,7 @@ public class MobController : MonoBehaviour
         float sqrDist = dist.sqrMagnitude;
         if (sqrDist <= sqrSightDist && sqrDist > sqrReach * 0.6f)
         {
-            if (actions.IsUnarmed()) actions.SwitchUnarmed(false);
+            if (!actions.IsArmed) actions.SwitchUnarmed(false);
             rb.MovePosition(transform.position + dist.normalized * speed * Time.fixedDeltaTime);
             float angle = Mathf.Atan2(dist.y, dist.x) * Mathf.Rad2Deg;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);

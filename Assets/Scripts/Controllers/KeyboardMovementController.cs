@@ -6,6 +6,7 @@ public class KeyboardMovementController : MonoBehaviour
     public float rotationSpeed = 3f;
     public Rigidbody2D rb;
     public CharacterActionsController character;
+    public NpcController npcController;
 
     private Vector3 movement;
 
@@ -20,16 +21,17 @@ public class KeyboardMovementController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.Space))
         {
-            if (!character.IsUnarmed())
+            if (character.IsArmed)
                 character.HitForward();
         }
         if (Input.GetKeyDown(KeyCode.F))
         {
-            character.SwitchUnarmed(!character.IsUnarmed());
+            character.SwitchUnarmed(character.IsArmed);
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-
+            NPC closest = npcController.GetClosest(character, npcController.talkRange);
+            if (closest != null) closest.Talk(character);
         }
     }
 
