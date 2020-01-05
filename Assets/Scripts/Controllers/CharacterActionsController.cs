@@ -1,22 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
+using static Enums;
 
 public class CharacterActionsController : MonoBehaviour
 {
-    [Serializable]
-    public enum StateChangeType
-    {
-        HP, Armed
-    }
-    [Serializable]
-    public struct StateChange
-    {
-        [SerializeField]
-        public StateChangeType type;
-        [SerializeField]
-        public float value;
-    }
-
     public HealthPoints hp;
     public Weapon weapon;
 
@@ -68,7 +54,7 @@ public class CharacterActionsController : MonoBehaviour
         }
     }
 
-    private void Hp_OnChange(int hpLeft)
+    private void Hp_OnChange(int value, int hpLeft)
     {
         if (hpLeft <= 0)
         {

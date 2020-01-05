@@ -37,7 +37,6 @@ public class Entrance : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        Debug.Log(trigger.gameObject);
         if (trigger.gameObject == character.gameObject)
         {
             SwitchState(true);

@@ -15,9 +15,9 @@ public class HPBar : MonoBehaviour
         max = hp.max;
     }
 
-    void Hp_OnChange(int value)
+    void Hp_OnChange(int value, int current)
     {
-        fill.localScale = new Vector3((float)value / max, fill.localScale.y, fill.localScale.z);
+        fill.localScale = new Vector3((float)current / max, fill.localScale.y, fill.localScale.z);
     }
 
 }

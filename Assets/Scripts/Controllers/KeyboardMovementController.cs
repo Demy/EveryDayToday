@@ -5,7 +5,7 @@ public class KeyboardMovementController : MonoBehaviour
     public float runSpeed = 3f;
     public float rotationSpeed = 3f;
     public Rigidbody2D rb;
-    public CharacterActionsController character;
+    public MainCharacter character;
     public NpcController npcController;
 
     private Vector3 movement;

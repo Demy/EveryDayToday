@@ -1,19 +1,32 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using static CharacterActionsController;
+using static Enums;
 
 public class NPC : MonoBehaviour
 {
     public CharacterActionsController actor;
-    public Dialog[] dialogStarters;
+    public DialogStructure[] dialogStarters;
 
-    public void Talk(CharacterActionsController character)
+    public void Talk(MainCharacter character)
     {
+        DialogStructure best = null;
         for (int i = 0; i < dialogStarters.Length; i++)
         {
-            if (dialogStarters[i].TryStart(character, this))
+            DialogStructure dialog = dialogStarters[i];
+            bool fits = dialog.FitsRequirements(character);
+            if (fits)
             {
-                break;
+                if (best == null || dialog.afterQuest)
+                {
+                    best = dialog;
+                }
+                if (dialog.afterQuest) break;
             }
+        }
+        if (best != null)
+        {
+            best.StartDialog(character, this);
         }
     }
 

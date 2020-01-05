@@ -1,48 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MobController : MonoBehaviour
 {
-    public Rigidbody2D rb;
-    public Transform target;
-    public float speed;
-    public float rotationSpeed;
-    public float sigthDist;
+    private Mob[] mobs;
 
-    public CharacterActionsController actions;
+    private float decisionTime;
 
-    private float sqrSightDist;
-    private float sqrReach;
+    private const float decisionGap = 2f; 
 
     private void Start()
     {
-        sqrSightDist = sigthDist * sigthDist;
-        sqrReach = actions.weapon.reach * actions.weapon.reach;
+        decisionTime = 0;
+        mobs = FindObjectsOfType<Mob>();
     }
 
     private void FixedUpdate()
     {
-        if (target != null)
+        for (int i = 0; i < mobs.Length; i++)
         {
-            Pursue();
+            Mob mob = mobs[i];
+            if (decisionTime <= 0)
+                mob.Decide();
+            mob.MakeAction();
         }
-    }
-
-    private void Pursue()
-    {
-        Vector3 dist = target.position - transform.position;
-        float sqrDist = dist.sqrMagnitude;
-        if (sqrDist <= sqrSightDist && sqrDist > sqrReach * 0.6f)
-        {
-            if (!actions.IsArmed) actions.SwitchUnarmed(false);
-            rb.MovePosition(transform.position + dist.normalized * speed * Time.fixedDeltaTime);
-            float angle = Mathf.Atan2(dist.y, dist.x) * Mathf.Rad2Deg;
-            Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
-            rb.MoveRotation(Quaternion.Slerp(transform.rotation, q, Time.fixedDeltaTime * rotationSpeed));
-        }
-        if (sqrDist <= sqrReach * 1.1f)
-        {
-            actions.HitForward();
-        }
+        if (decisionTime <= 0)
+            decisionTime = decisionGap;
+        else
+            decisionTime -= Time.fixedDeltaTime;
     }
 }

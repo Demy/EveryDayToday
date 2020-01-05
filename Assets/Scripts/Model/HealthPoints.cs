@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class HealthPoints : MonoBehaviour
 {
-    public delegate void Chainge(int value);
-    public Chainge OnChange = (i) => { };
+    public delegate void Chainge(int value, int current);
+    public Chainge OnChange = (i, j) => { };
     public int max = 1;
 
     public ParticleSystem blood;
+    public ParticleSystem heal;
 
     public int current;
 
@@ -18,16 +18,16 @@ public class HealthPoints : MonoBehaviour
 
     public void Change(int value)
     {
-        current = Mathf.Min(max, value + current);
-        if (blood != null)
+        current = Mathf.Max(0, Mathf.Min(max, value + current));
+        if (value < 0 && blood != null)
         {
             blood.Play();
         }
-        if (current <= 0)
+        if (value > 0 && heal != null)
         {
-            current = 0;
+            heal.Play();
         }
-        OnChange(current);
+        OnChange(value, current);
     }
 
     public int GetValue()

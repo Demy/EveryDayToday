@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b797599c1b13d40bf88250a03e83647f, type: 3}
+  m_Name: KillRequest
+  m_EditorClassIdentifier: 
+  requirements: []
+  lines:
+  - Hi, could you please kill like... 3 enemies? Please?..
+  answers:
+  - {fileID: 11400000, guid: 8867ddd354f2049d7988ea5564875983, type: 2}
+  - {fileID: 11400000, guid: 31f64eb7b6e634508ab57e8b3663f249, type: 2}

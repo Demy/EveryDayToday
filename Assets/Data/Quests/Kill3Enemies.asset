@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86e0d14801cd2473da15cc01acca1fc0, type: 3}
+  m_Name: Kill3Enemies
+  m_EditorClassIdentifier: 
+  questId: KILL_3_ENEMIES
+  successRequirements:
+  - {fileID: 11400000, guid: 71276f67892504b79966b124df0e309d, type: 2}
+  failRequirements: []
+  title: Kill *like* 3 enemies
+  description: Figth and kill 3 enemies and get... a reward?
+  finalDialog: {fileID: 11400000, guid: 822476e5c2e424f8e93f54b274baabd3, type: 2}
+  rewards:
+  - type: 0
+    value: 5

@@ -67,7 +67,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1793510837
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 50
   m_Sprite: {fileID: 21300000, guid: 3bd12705a40da43c89dadbca6aa02b0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0}
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 3125707201546089295}
-  cooldownTime: 0.5
+  cooldownTime: 0.75
   reach: 1.5
   weaponDamageDealer: {fileID: 3125707202127203247}
 --- !u!95 &3125707201546089295
@@ -4936,7 +4936,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -679395039
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 9
   m_RenderMode: 0
   m_SortMode: 0
@@ -4970,8 +4970,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3125707201812257316}
+  - component: {fileID: 47866030744661137}
   - component: {fileID: 3125707201812257320}
-  - component: {fileID: 3125707201812257321}
   - component: {fileID: 3125707201812257323}
   - component: {fileID: 3125707201812257322}
   - component: {fileID: 3125707201812257317}
@@ -4999,6 +4999,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &47866030744661137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3125707201812257319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c61e8a2bf80344494941d8f03e566ae9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 3125707201812257317}
+  target: {fileID: 3125707201812257316}
+  speed: 2
+  rotationSpeed: 3
+  sigthDist: 3
+  actions: {fileID: 3125707201812257323}
 --- !u!114 &3125707201812257320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5013,25 +5031,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   max: 3
   blood: {fileID: 3125707201767540153}
+  heal: {fileID: 0}
   current: 0
---- !u!114 &3125707201812257321
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3125707201812257319}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f1e7693d85b841e6a00a82ce0192c87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 3125707201812257317}
-  target: {fileID: 0}
-  speed: 2
-  rotationSpeed: 10
-  sigthDist: 6
-  actions: {fileID: 3125707201812257323}
 --- !u!114 &3125707201812257323
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5047,6 +5048,7 @@ MonoBehaviour:
   hp: {fileID: 3125707201812257320}
   weapon: {fileID: 3125707201546089292}
   unarmed: {fileID: 0}
+  isArmed: 0
 --- !u!61 &3125707201812257322
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -5176,7 +5178,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1793510837
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 52
   m_Sprite: {fileID: 21300000, guid: 4efb18164bb9845feb7d858583d67910, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -5282,7 +5284,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1793510837
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 80
   m_Sprite: {fileID: 21300000, guid: 7dc1ae6af31a149a9bcf07c399c9a537, type: 3}
   m_Color: {r: 0.81034666, g: 0.46742615, b: 0.9811321, a: 1}
@@ -5362,7 +5364,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1793510837
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: b8e3fbb6c47a44c119bcdda900d3fc56, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
