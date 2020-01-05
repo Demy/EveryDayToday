@@ -3,7 +3,9 @@
 public class HealthPoints : MonoBehaviour
 {
     public delegate void Chainge(int value, int current);
+    public delegate void StateChange(HealthPoints source);
     public Chainge OnChange = (i, j) => { };
+    public StateChange OnDeath = (i) => { };
     public int max = 1;
 
     public ParticleSystem blood;
@@ -22,6 +24,7 @@ public class HealthPoints : MonoBehaviour
         if (value < 0 && blood != null)
         {
             blood.Play();
+            OnDeath(this);
         }
         if (value > 0 && heal != null)
         {

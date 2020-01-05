@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MobController : MonoBehaviour
 {
-    private Mob[] mobs;
+    private List<Mob> mobs;
 
     private float decisionTime;
 
@@ -13,12 +13,38 @@ public class MobController : MonoBehaviour
     private void Start()
     {
         decisionTime = 0;
-        mobs = FindObjectsOfType<Mob>();
+        mobs = new List<Mob>(FindObjectsOfType<Mob>());
+        foreach (Mob mob in mobs)
+        {
+            HealthPoints hp = mob.GetComponent<HealthPoints>();
+            if (hp != null)
+            {
+                hp.OnDeath += Hp_OnDeath;
+            }
+        }
     }
+
+    private void OnDestroy()
+    {
+        foreach (Mob mob in mobs)
+        {
+            HealthPoints hp = mob.GetComponent<HealthPoints>();
+            if (hp != null)
+            {
+                hp.OnDeath -= Hp_OnDeath;
+            }
+        }
+    }
+
+    void Hp_OnDeath(HealthPoints source)
+    {
+        mobs.Remove(source.GetComponent<Mob>());
+    }
+
 
     private void FixedUpdate()
     {
-        for (int i = 0; i < mobs.Length; i++)
+        for (int i = 0; i < mobs.Count; i++)
         {
             Mob mob = mobs[i];
             if (decisionTime <= 0)

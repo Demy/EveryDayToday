@@ -14,7 +14,7 @@ public class CharacterActionsController : MonoBehaviour
 
     private void Start()
     {
-        hp.OnChange += Hp_OnChange;
+        hp.OnDeath += Hp_OnDeath;
 
         if (unarmed != null && !IsArmed) SwitchUnarmed(true);
     }
@@ -30,7 +30,7 @@ public class CharacterActionsController : MonoBehaviour
 
     private void OnDestroy()
     {
-        hp.OnChange -= Hp_OnChange;
+        hp.OnDeath -= Hp_OnDeath;
     }
 
     public void HitForward()
@@ -54,11 +54,8 @@ public class CharacterActionsController : MonoBehaviour
         }
     }
 
-    private void Hp_OnChange(int value, int hpLeft)
+    private void Hp_OnDeath(HealthPoints hp)
     {
-        if (hpLeft <= 0)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }
